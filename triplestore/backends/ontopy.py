@@ -7,13 +7,13 @@ from typing import TYPE_CHECKING
 from ontopy.ontology import get_ontology, Ontology, _unabbreviate
 
 
-from dlite.triplestore import Literal
+from triplestore import Literal
 
 if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Sequence
     from typing import Generator
 
-    from dlite.triplestore import Triple
+    from triplestore import Triple
 
 
 class OntopyStrategy:

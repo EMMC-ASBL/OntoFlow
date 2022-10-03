@@ -22,12 +22,11 @@ from typing import Any, Callable, Dict, List, Optional, Union
 import numpy as np
 from pint import Quantity
 
-import dlite
-from dlite.triplestore import Triplestore, DM, FNO, MAP, RDF, RDFS
+from triplestore import Triplestore, DM, FNO, MAP, RDF, RDFS
 from dlite.utils import infer_dimensions
 
 
-class MappingError(dlite.DLiteError):
+class MappingError(Exception):
     """Base class for mapping errors."""
 
 

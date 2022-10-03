@@ -1,4 +1,10 @@
-# Skip test if rdflib is not available
+"""Test script for triplestore
+
+Usage: test_triplestore [backend]
+
+If backend is given, only that backend will be tested.  Otherwise all
+installed backends are tested one by one.
+"""
 import argparse
 import subprocess
 import sys
@@ -14,18 +20,19 @@ thisdir = Path(__file__).absolute().parent
 ontopath_family = thisdir / "ontologies" / "family.ttl"
 ontopath_food = thisdir / "ontologies" / "food.ttl"
 
+# Parse backend argument. If not provided, all available backends are tested.
 parser = argparse.ArgumentParser(
     description="General test script for triplestore backends"
 )
 parser.add_argument("backend", nargs="?", help="backend to test")
 args = parser.parse_args()
-
-
 if args.backend is None:
-    for backend in get_backends():
+    for backend in get_backends(only_available=True):
         subprocess.call([sys.executable, __file__, backend])
     sys.exit(0)
 
+
+print(f"Testing backend: {args.backend}")
 
 ts = Triplestore(args.backend)
 assert ts.expand_iri("xsd:integer") == XSD.integer

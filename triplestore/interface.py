@@ -6,7 +6,7 @@ if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Sequence
     from typing import Generator
 
-    from dlite.triplestore import Triple
+    from triplestore import Triple
 
 
 class ITriplestore(Protocol):

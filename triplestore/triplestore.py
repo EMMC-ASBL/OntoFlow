@@ -1,7 +1,8 @@
 '''A module encapsulating different triplestores using the strategy design
 pattern.
 
-See https://github.com/SINTEF/dlite/tree/master/bindings/python/triplestore
+See
+https://raw.githubusercontent.com/EMMC-ASBL/OntoFlow/master/triplestore/README.md
 for an introduction.
 
 This module has no dependencies outside the standard library, but the
@@ -343,7 +344,7 @@ class Triplestore:
                 method.
         """
         module = import_module(backend if "." in backend
-                      else "dlite.triplestore.backends." + backend)
+                      else "triplestore.backends." + backend)
         cls = getattr(module, backend.title() + "Strategy")
         self.base_iri = base_iri
         self.namespaces = {}

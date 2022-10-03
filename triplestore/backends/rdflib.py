@@ -4,13 +4,13 @@ from typing import TYPE_CHECKING
 import rdflib
 from rdflib import BNode, Graph, URIRef
 
-from dlite.triplestore import Literal
+from triplestore import Literal
 
 if TYPE_CHECKING:  # pragma: no cover
     from collections.abc import Sequence
     from typing import Generator
 
-    from dlite.triplestore import Triple
+    from triplestore import Triple
 
 
 def asuri(v):
