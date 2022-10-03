@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from dlite.triplestore import en, Namespace, Triplestore, RDF
-from dlite.triplestore.triplestore import function_id, NoSuchIRIError
+from triplestore import en, Namespace, Triplestore, RDF
+from triplestore.triplestore import function_id, NoSuchIRIError
 
 
 thisdir = Path(__file__).absolute().parent

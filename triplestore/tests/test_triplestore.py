@@ -5,9 +5,9 @@ import sys
 import textwrap
 from pathlib import Path
 
-from dlite.triplestore import Triplestore, RDF, RDFS, XSD, OWL, SKOS
-from dlite.triplestore.triplestore import function_id
-from dlite.triplestore.backends import get_backends
+from triplestore import Triplestore, RDF, RDFS, XSD, OWL, SKOS
+from triplestore.triplestore import function_id
+from triplestore.backends import get_backends
 
 
 thisdir = Path(__file__).absolute().parent
