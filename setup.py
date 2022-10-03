@@ -63,8 +63,8 @@ with open(os.path.join(rootdir, "ontoflow/__init__.py")) as handle:
 setuptools.setup(
     name="OntoFlow",
     version=VERSION,
-    author="Alessandro Calvio, Alessio Mora, Luca Foschini, Jesper Friis",
-    author_email="alessandro.calvio@unibo.it",
+    author="University of Bologna and SINTEF",
+    author_email="alessandro.calvio@unibo.it; jesper.friis@sintef.no",
     description="Workflow builder.",
     long_description=long_description,
     long_description_content_type="text/markdown",
