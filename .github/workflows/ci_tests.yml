@@ -1,0 +1,24 @@
+name: CI - Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+    - 'main'
+    - 'push-action/**'  # Allow pushing to protected branches (using CasperWA/push-protected)
+
+jobs:
+  tests:
+    name: External
+    uses: SINTEF/ci-cd/.github/workflows/ci_tests.yml@v1
+    with:
+      # General settings
+      run_pre-commit: false
+      run_pylint: false
+      run_safety: false
+      run_build_docs: false
+
+      # Build package
+      run_build_package: true
+      python_version_package: "3.7"
+      build_cmd: python -m build
