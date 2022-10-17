@@ -1,2 +1,4 @@
-#EMMOntoPy
-rdflib
+DLite-Python~=0.3.15
+NumPy~=1.21
+pint~=0.18
+tripper~=0.1.1

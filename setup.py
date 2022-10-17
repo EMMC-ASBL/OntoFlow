@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 The OntoFlow workflow builder.
 
@@ -7,7 +6,6 @@ frontend to a set of different triplestores.
 """
 import os
 import re
-from glob import glob
 from pathlib import Path
 
 import setuptools
@@ -33,20 +31,6 @@ with open(rootdir / "requirements.txt", "rt") as handle:
         if not line.startswith("#") and "git+" not in line
     ]
 
-with open(rootdir / "requirements_docs.txt", "r") as handle:
-    DOCS = [
-        f"{line.strip()}"
-        for line in handle.readlines()
-        if not line.startswith("#") and "git+" not in line
-    ]
-
-with open(os.path.join(rootdir, "requirements_dev.txt"), "r") as handle:
-    DEV = [
-        f"{line.strip()}"
-        for line in handle.readlines()
-        if not line.startswith("#") and "git+" not in line
-    ] + DOCS
-
 # Retrieve package version
 with open(os.path.join(rootdir, "ontoflow/__init__.py")) as handle:
     for line in handle:
@@ -70,7 +54,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/emmc-asbl/OntoFlow",
     license="MIT",
-    python_requires=">=3.6.0",
+    python_requires="~=3.7",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
@@ -79,7 +63,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
@@ -89,10 +72,6 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     install_requires=REQUIREMENTS,
-    extras_require={
-        "dev": DEV,
-        "docs": DOCS,
-    },
     packages=setuptools.find_packages(),
     scripts=[
     ],
