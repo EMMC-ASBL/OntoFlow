@@ -11,19 +11,15 @@ with numpy.
 """
 from __future__ import annotations
 
-import itertools
-import types
-import warnings
 from collections import defaultdict
-from collections.abc import Sequence
 from enum import Enum
-from typing import Any, Callable, Dict, List, Optional, Union
+from typing import Any, Callable, Optional, Union
 
+import dlite
+from dlite.utils import infer_dimensions
 import numpy as np
 from pint import Quantity
-
-from triplestore import Triplestore, DM, FNO, MAP, RDF, RDFS
-from dlite.utils import infer_dimensions
+from tripper import DM, FNO, MAP, RDF, RDFS
 
 
 class MappingError(Exception):
