@@ -1,0 +1,27 @@
+name: CD - Publish
+
+on:
+  release:
+    types:
+    - published
+
+jobs:
+  publish:
+    name: External
+    uses: SINTEF/ci-cd/.github/workflows/cd_release.yml@v1
+    if: github.repository == 'EMMC-ASBL/OntoFlow' && startsWith(github.ref, 'refs/tags/v')
+    with:
+      # General
+      git_username: "TEAM 4.0[bot]"
+      git_email: "Team4.0@SINTEF.no"
+      release_branch: master
+
+      # Build package
+      python_package: true
+      package_dirs: ontoflow
+      python_version_build: "3.7"
+      build_cmd: "python -m build"
+      publish_on_pypi: true
+    secrets:
+      PyPI_token: ${{ secrets.PYPI_TOKEN }}
+      PAT: ${{ secrets.RELEASE_PAT }}
